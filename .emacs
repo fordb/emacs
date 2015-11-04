@@ -16,11 +16,14 @@
 (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
                          ("marmalade" . "http://marmalade-repo.org/packages/")
                          ("melpa" . "http://melpa.org/packages/")))
-;; enable elpy
-
+;; enable Elpy
 (package-initialize)
 (elpy-enable)
 (elpy-use-ipython)
+
+;; Line highlighting
+(global-hl-line-mode t)
+(set-face-background 'hl-line "gray19")
 
 ;---------------;
 ;;; Utilities ;;;
