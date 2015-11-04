@@ -17,8 +17,10 @@
                          ("marmalade" . "http://marmalade-repo.org/packages/")
                          ("melpa" . "http://melpa.org/packages/")))
 ;; enable elpy
+
 (package-initialize)
 (elpy-enable)
+(elpy-use-ipython)
 
 ;---------------;
 ;;; Utilities ;;;
