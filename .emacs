@@ -2,6 +2,19 @@
 ;; Created 11/4/15
 
 
+;; time
+(defface egoge-display-time
+  '((((type x w32 mac))
+     ;; #060525 is the background colour of my default face.
+     (:foreground "#060525" :inherit bold))
+    (((type tty))
+     (:foreground "blue")))
+  "Face used to display the time in the mode line.")
+;; `egoge-display-time-face' to make it stand out visually.
+(setq display-time-string-forms
+      '((propertize (concat " " 24-hours ":" minutes " ")
+		        'face 'egoge-display-time)))
+
 
 ;-----------;
 ;;; Modes ;;;
@@ -24,6 +37,7 @@
 ;; Line highlighting
 (global-hl-line-mode t)
 (set-face-background 'hl-line "gray19")
+
 
 ;---------------;
 ;;; Utilities ;;;
@@ -59,3 +73,26 @@
 
 ;; time
 (display-time-mode 1)
+
+
+;--------------;
+;;; bindings ;;;
+;--------------;
+
+(global-set-key (kbd "C-x <up>") 'comint-next-matching-input-from-input)
+
+
+;----------------;
+;;; sql config ;;;
+;----------------;
+
+(setq sql-postgres-login-params
+      '((user :default "ford")
+	(database :default "clipclop")
+	(server :default "dw-sm.camyztsai2ut.us-east-1.redshift.amazonaws.com")
+	(port :default 5439)))
+
+; truncate lines
+(add-hook 'sql-interactive-mode-hook
+	  (lambda ()
+	    (toggle-truncate-lines t)))
