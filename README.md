@@ -1,6 +1,6 @@
 # Emacs init file
 ### Ford Bohrmann
-### Created 11/4/15
+### Created 9/21/16
 
 [Interactively Do Things](http://emacswiki.org/emacs/InteractivelyDoThings)
 
